@@ -1,30 +1,30 @@
-import { UserButton } from "@clerk/nextjs";
+import Shell from "@/components/Shell";
 import { getAuth, buildClerkProps } from "@clerk/nextjs/server";
-import { GetServerSideProps, type NextPage } from 'next'
-
-export const getServerSideProps: GetServerSideProps = async ctx => {
-
-  const { userId } = getAuth(ctx.req)
-  if (!userId) {
-    // handle user is not logged in.
-    return {
-        props: { ...buildClerkProps(ctx.req) },
-        redirect: {
-            destination: `?next=`
-        }
-    }
-  }
-  return {
-    props: { ...buildClerkProps(ctx.req) }
-}
-}
+import type { GetServerSideProps, NextPage } from 'next'
 
 const index: NextPage = () => {
   return (
-    <div className="text-lightA h-screen p-5 max-w-5xl mx-auto">
-        <UserButton />
-    </div>
+    <Shell>
+      Recent
+    </Shell>
   )
 }
+
+export const getServerSideProps: GetServerSideProps = async ctx => {
+  const resolvedUrl = ctx.req.url
+    const { userId } = getAuth(ctx.req)
+    if (!userId) {
+      // handle user is not logged in.
+      return {
+          props: { ...buildClerkProps(ctx.req) },
+          redirect: {
+              destination: `/`
+          }
+      }
+    }
+    return {
+      props: { ...buildClerkProps(ctx.req) }
+  }
+  }
 
 export default index
