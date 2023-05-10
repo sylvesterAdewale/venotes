@@ -8,7 +8,7 @@ import { SignIn } from "@clerk/nextjs";
 import { getAuth, buildClerkProps } from "@clerk/nextjs/server";
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
-  let next = ctx.query.next || 'recent';
+  let next = ctx.query.next || '/recent';
   const { userId } = getAuth(ctx.req)
   
   if (userId) {

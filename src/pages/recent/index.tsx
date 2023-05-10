@@ -3,14 +3,14 @@ import { getAuth, buildClerkProps } from "@clerk/nextjs/server";
 import { GetServerSideProps, type NextPage } from 'next'
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
-    console.log(ctx.resolvedUrl)
+
   const { userId } = getAuth(ctx.req)
   if (!userId) {
     // handle user is not logged in.
     return {
         props: { ...buildClerkProps(ctx.req) },
         redirect: {
-            destination: `/?next=`
+            destination: `?next=`
         }
     }
   }
