@@ -9,7 +9,8 @@ import Head from "next/head";
 import { Inter } from 'next/font/google';
 import { cn } from "@/utils/cn";
  
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['greek'] });
+
 const clerkTheme = {
   variables: {
     fontFamily: "Inter",
@@ -24,6 +25,7 @@ const clerkTheme = {
     footerActionLink: "text-white hover:text-[#D9D9D9]"
   }
 }
+
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (

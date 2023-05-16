@@ -4,7 +4,7 @@ import type { GetServerSideProps, NextPage } from 'next'
 
 const index: NextPage = () => {
   return (
-    <Shell>
+    <Shell path="/recent">
       Recent
     </Shell>
   )
@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
     if (!userId) {
       // handle user is not logged in.
       return {
-          props: { ...buildClerkProps(ctx.req) },
+          props: {},
           redirect: {
               destination: `/`
           }

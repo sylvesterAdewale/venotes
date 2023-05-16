@@ -1,5 +1,6 @@
 import { type GetServerSideProps, type NextPage } from 'next'
 import { getAuth, buildClerkProps } from "@clerk/nextjs/server";
+import Shell from '@/components/Shell';
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const resolvedUrl = ctx.req.url
@@ -20,7 +21,9 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
 
 const trash: NextPage = () => {
   return (
-    <div className='h-screen text-lightA'>trash</div>
+    <Shell path="/trash">
+      Trash
+    </Shell>
   )
 }
 

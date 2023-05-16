@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import cva from 'class-variance-authority';
+import { cn } from '@/utils/cn';
+
 
 const Logo = () => {
   return (
-    <Image src="/logo.svg" height={30} width={30} alt='Venotes' />
+    <Image src="/logo.svg" width={50} height={50} className='w-9 h-9' alt='Venotes' />
   )
 }
 
