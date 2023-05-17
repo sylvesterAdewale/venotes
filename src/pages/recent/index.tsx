@@ -13,6 +13,7 @@ const index: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const resolvedUrl = ctx.req.url
     const { userId } = getAuth(ctx.req)
+    console.log('I\'m here')
     if (!userId) {
       // handle user is not logged in.
       return {

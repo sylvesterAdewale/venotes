@@ -11,6 +11,6 @@ export const noteRouter = createTRPCRouter({
       };
     }),
   getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.example.findMany();
+    return ctx.prisma.note.findMany();
   }),
 });
